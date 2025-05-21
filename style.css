@@ -1,0 +1,195 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* RGB Background Animation */
+.rgb-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.3;
+  background: linear-gradient(45deg, #000, #1e3a8a, #000, #1e3a8a);
+  background-size: 400%;
+  animation: rgbBackground 15s ease infinite;
+}
+
+@keyframes rgbBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Header */
+header {
+  transition: box-shadow 0.3s;
+}
+
+header.scrolled {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.menu-toggle {
+  position: relative;
+  z-index: 60;
+  margin-right: 0.5rem;
+}
+
+.bar {
+  transition: all 0.3s;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Menu */
+.h-right {
+  transition: transform 0.3s ease-in-out;
+}
+
+.h-right.active {
+  transform: translateX(0);
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 250px;
+  background: #1e3a8a;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  z-index: 50;
+}
+
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 40;
+}
+
+.mobile-overlay.active {
+  display: block;
+}
+
+/* Nav Links */
+.nav-link.active {
+  color: #60a5fa;
+  border-bottom: 2px solid #60a5fa;
+}
+
+/* RGB Border Animation for Sections */
+.rgb-border {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff0000);
+  background-size: 400%;
+  animation: rgbBorder 5s linear infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.section.active .rgb-border {
+  opacity: 1;
+}
+
+@keyframes rgbBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hire Me Button */
+.hire-me-btn {
+  position: relative;
+  transition: color 0.3s;
+}
+
+.hire-me-btn .btn-rgb {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff0000);
+  background-size: 400%;
+  animation: rgbBorder 3s linear infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hire-me-btn:hover .btn-rgb {
+  opacity: 1;
+}
+
+.hire-me-btn:hover span {
+  color: #fff;
+}
+
+/* Projects */
+.projects-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #60a5fa #1e3a8a;
+}
+
+.projects-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.projects-scroll::-webkit-scrollbar-thumb {
+  background: #60a5fa;
+  border-radius: 4px;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+/* Responsive Contact Icons */
+.contact-item i {
+  transition: transform 0.3s;
+}
+
+.contact-item:hover i {
+  transform: scale(1.2);
+}
+
+/* Client Reviews */
+.review-card {
+  transition: transform 0.3s;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .h-right {
+    transform: translateX(100%);
+  }
+}
