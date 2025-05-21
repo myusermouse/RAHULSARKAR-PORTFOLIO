@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Rahul Sarkar, a Graphic Designer and aspiring Video Editor.">
+  <meta name="keywords" content="Rahul Sarkar, Graphic Designer, Video Editor, Web Design, Portfolio">
+  <meta name="author" content="Rahul Sarkar">
+  <title>Rahul Sarkar - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="font-poppins bg-gradient-to-br from-black to-blue-900 text-white">
+  <!-- RGB Background Elements -->
+  <div class="rgb-bg"></div>
+  <div class="rgb-bg"></div>
+  <div class="rgb-bg"></div>
+
+  <header id="header" class="fixed top-0 w-full bg-black bg-opacity-80 z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <div class="h-left">
+        <img src="./My logo/mylogo.png" alt="Rahul Sarkar Logo" class="mylogo w-12 h-12">
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button class="menu-toggle md:hidden" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <div class="bar w-6 h-0.5 bg-white mb-1.5"></div>
+        <div class="bar w-6 h-0.5 bg-white mb-1.5"></div>
+        <div class="bar w-6 h-0.5 bg-white"></div>
+      </button>
+      
+      <!-- Navigation -->
+      <nav class="h-right hidden md:flex space-x-6" id="mainNav">
+        <a href="#section1" class="nav-link text-lg hover:text-blue-400"><span>Home</span></a>
+        <a href="#section2" class="nav-link text-lg hover:text-blue-400"><span>Projects</span></a>
+        <a href="#section3" class="nav-link text-lg hover:text-blue-400"><span>Contact</span></a>
+        <a href="#section4" class="nav-link text-lg hover:text-blue-400"><span>About</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <main class="pt-20">
+    <!-- Home Section -->
+    <section id="section1" class="section min-h-screen flex items-center relative">
+      <div class="rgb-border"></div>
+      <div class="container mx-auto flex flex-col md:flex-row items-center">
+        <div class="home-left w-full md:w-1/3">
+          <img src="./Profile Image/myphoto.png" alt="Rahul Sarkar" class="myphoto w-64 h-64 object-cover rounded-full mx-auto">
+        </div>
+        <div class="home-right w-full md:w-2/3 p-6">
+          <div class="intro">
+            <h1 class="text-4xl font-bold">Rahul Sarkar</h1>
+            <h5 class="text-xl text-blue-400">Graphic Designer & Video Editor</h5>
+            <p class="mt-4 text-lg">Hi, I'm Rahul Sarkar – a passionate Graphic Designer and aspiring Video Editor. Currently pursuing my B.A. in English, I create visually stunning designs and engaging video content.</p>
+          </div>
+          <div class="social-media flex space-x-4 mt-6">
+            <a href="https://www.facebook.com/iam.rahul.sarkar.1" aria-label="Facebook" class="text-2xl hover:text-blue-400"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/in/md-rahul-sarkar-199a9632a" aria-label="LinkedIn" class="text-2xl hover:text-blue-400"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/md.rahul.sarkar.00.9" aria-label="Instagram" class="text-2xl hover:text-blue-400"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:mdrahulsarkar5525@gmail.com" aria-label="Email" class="text-2xl hover:text-blue-400"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/myusermouse" aria-label="GitHub" class="text-2xl hover:text-blue-400"><i class="fab fa-github"></i></a>
+          </div>
+          <a href="mailto:mdrahulsarkar5525@gmail.com" class="hire-me-btn inline-block mt-6 px-6 py-3 bg-transparent border-2 border-white rounded relative overflow-hidden">
+            <span class="relative z-10">Hire Me</span>
+            <div class="btn-rgb absolute inset-0"></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="section2" class="section py-16 relative">
+      <div class="rgb-border"></div>
+      <h2 class="text-3xl font-bold text-center mb-12">My Projects</h2>
+      <div class="projects-scroll flex overflow-x-auto space-x-6 px-4">
+        <div class="projects-container flex">
+          <article class="project-card w-80 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden">
+            <div class="project-img-container relative">
+              <img src="https://images.unsplash.com/photo-1547658719-706d4d1043b2" alt="Modern Portfolio Website" class="project-img w-full h-48 object-cover">
+              <div class="project-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity">
+                <a href="./projects/portfolio.html" class="text-white font-bold">View Details</a>
+              </div>
+            </div>
+            <div class="project-info p-4">
+              <h3 class="text-xl font-semibold">Modern Portfolio Website</h3>
+              <p class="text-gray-300">Designed and developed a responsive portfolio website with modern UI/UX, featuring smooth animations and dynamic content.</p>
+              <a href="./projects/portfolio.html" class="see-more inline-flex items-center mt-4 text-blue-400">
+                <span>View Project</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </article>
+          <article class="project-card w-80 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden">
+            <div class="project-img-container relative">
+              <video class="project-img w-full h-48 object-cover" controls>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-video-of-a-man-in-a-suit-50476-large.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="project-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity">
+                <a href="./projects/video-reel.html" class="text-white font-bold">View Details</a>
+              </div>
+            </div>
+            <div class="project-info p-4">
+              <h3 class="text-xl font-semibold">Video Editing Reel</h3>
+              <p class="text-gray-300">Created a dynamic video reel showcasing storytelling through seamless transitions and effects.</p>
+              <a href="./projects/video-reel.html" class="see-more inline-flex items-center mt-4 text-blue-400">
+                <span>View Project</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </article>
+          <article class="project-card w-80 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden">
+            <div class="project-img-container relative">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="E-Commerce Website Design" class="project-img w-full h-48 object-cover">
+              <div class="project-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity">
+                <a href="./projects/ecommerce.html" class="text-white font-bold">View Details</a>
+              </div>
+            </div>
+            <div class="project-info p-4">
+              <h3 class="text-xl font-semibold">E-Commerce Website Design</h3>
+              <p class="text-gray-300">Crafted a visually appealing and user-friendly e-commerce website with a focus on UX and conversions.</p>
+              <a href="./projects/ecommerce.html" class="see-more inline-flex items-center mt-4 text-blue-400">
+                <span>View Project</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="section3" class="section py-16 relative">
+      <div class="rgb-border"></div>
+      <div class="contact-container container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
+        <div class="contact-grid grid grid-cols-2 md:grid-cols-4 gap-6">
+          <a href="mailto:mdrahulsarkar5525@gmail.com" class="contact-item flex flex-col items-center text-center">
+            <i class="fas fa-envelope text-3xl md:text-5xl mb-2"></i>
+            <span>Email</span>
+          </a>
+          <a href="tel:+8801234567890" class="contact-item flex flex-col items-center text-center">
+            <i class="fas fa-phone text-3xl md:text-5xl mb-2"></i>
+            <span>Call</span>
+          </a>
+          <a href="https://wa.me/+8801234567890" class="contact-item flex flex-col items-center text-center">
+            <i class="fab fa-whatsapp text-3xl md:text-5xl mb-2"></i>
+            <span>WhatsApp</span>
+          </a>
+          <a href="https://t.me/rahulsarkar" class="contact-item flex flex-col items-center text-center">
+            <i class="fab fa-telegram text-3xl md:text-5xl mb-2"></i>
+            <span>Telegram</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="section4" class="section py-16 relative">
+      <div class="rgb-border"></div>
+      <div class="about-container container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
+        <div class="skills-container grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="skill-item bg-gray-800 p-6 rounded-lg text-center">
+            <i class="fas fa-palette text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold">Graphic Design</h3>
+            <p class="text-gray-300">Creating visually stunning designs for digital and print media.</p>
+          </div>
+          <div class="skill-item bg-gray-800 p-6 rounded-lg text-center">
+            <i class="fas fa-video text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold">Video Editing</h3>
+            <p class="text-gray-300">Professional video editing and post-production services.</p>
+          </div>
+          <div class="skill-item bg-gray-800 p-6 rounded-lg text-center">
+            <i class="fas fa-code text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold">Web Design</h3>
+            <p class="text-gray-300">Building responsive and user-friendly websites.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Reviews Section -->
+    <section id="section5" class="section py-16 relative">
+      <div class="rgb-border"></div>
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Client Reviews</h2>
+        <div class="reviews-container grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="review-card bg-gray-800 p-6 rounded-lg text-center">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="Client A" class="w-16 h-16 rounded-full mx-auto mb-4">
+            <p class="text-gray-300">"Rahul delivered a fantastic portfolio website with great attention to detail. Highly recommended!"</p>
+            <h4 class="text-lg font-semibold mt-4">Client A</h4>
+          </div>
+          <div class="review-card bg-gray-800 p-6 rounded-lg text-center">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" alt="Client B" class="w-16 h-16 rounded-full mx-auto mb-4">
+            <p class="text-gray-300">"The video editing was smooth and professional. Pretty good work overall!"</p>
+            <h4 class="text-lg font-semibold mt-4">Client B</h4>
+          </div>
+          <div class="review-card bg-gray-800 p-6 rounded-lg text-center">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7" alt="Client C" class="w-16 h-16 rounded-full mx-auto mb-4">
+            <p class="text-gray-300">"Rahul's designs are creative and modern. Not bad at all!"</p>
+            <h4 class="text-lg font-semibold mt-4">Client C</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-900 py-6 text-center">
+    <p>© <span id="year"></span> Rahul Sarkar. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
