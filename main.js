@@ -9,11 +9,41 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.section');
     const yearSpan = document.getElementById('year');
     const hireBtn = document.querySelector('.hire-me-btn');
+    const resumeBtn = document.querySelector('.resume-btn');
     const projectCards = document.querySelectorAll('.project-card');
     
-    // typing effect
+    // Prevent text selection and dragging
+    document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+    });
+    document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+    });
+    
+    // Lazy load images
+    const images = document.querySelectorAll('img');
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src || img.src;
+                    observer.unobserve(img);
+                }
+            });
+        });
+        images.forEach(img => {
+            if (!img.src) {
+                img.dataset.src = img.getAttribute('src');
+                img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+                observer.observe(img);
+            }
+        });
+    }
+    
+    // Typing effect
     const typingElement = document.getElementById('typing');
-    const typingTexts = ["Web Developer", "Designer", "Freelancer"];
+    const typingTexts = ["Web Developer", "Designer", "Freelancer", "Graphic Designer", "Social Media Management", "Expert"];
     let textIndex = 0;
     let charIndex = 0;
     
@@ -141,15 +171,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Hire button hover effect
-    if (hireBtn) {
-        hireBtn.addEventListener('mouseenter', function() {
-            this.querySelector('span').style.color = '#fff';
-        });
-        hireBtn.addEventListener('mouseleave', function() {
-            this.querySelector('span').style.color = '';
-        });
-    }
+    // Hire and Resume button hover effects
+    [hireBtn, resumeBtn].forEach(btn => {
+        if (btn) {
+            btn.addEventListener('mouseenter', function() {
+                this.querySelector('span').style.color = '#000';
+            });
+            btn.addEventListener('mouseleave', function() {
+                this.querySelector('span').style.color = '';
+            });
+        }
+    });
     
     // Project card hover effect
     projectCards.forEach(card => {
