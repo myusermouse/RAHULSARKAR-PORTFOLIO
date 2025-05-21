@@ -11,6 +11,39 @@ document.addEventListener('DOMContentLoaded', function() {
     const hireBtn = document.querySelector('.hire-me-btn');
     const projectCards = document.querySelectorAll('.project-card');
     
+    // typing effect
+    const typingElement = document.getElementById('typing');
+    const typingTexts = ["Web Developer", "Designer", "Freelancer"];
+    let textIndex = 0;
+    let charIndex = 0;
+    
+    function type() {
+        if (!typingElement) return;
+        
+        if (charIndex < typingTexts[textIndex].length) {
+            typingElement.textContent += typingTexts[textIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, 100);
+        } else {
+            setTimeout(erase, 1500);
+        }
+    }
+    
+    function erase() {
+        if (charIndex > 0) {
+            typingElement.textContent = typingTexts[textIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, 50);
+        } else {
+            textIndex = (textIndex + 1) % typingTexts.length;
+            setTimeout(type, 500);
+        }
+    }
+    
+    if (typingElement) {
+        type();
+    }
+    
     // Set current year
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
