@@ -2,6 +2,18 @@
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+  /* Disable text selection and dragging */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Disable dragging for images and videos */
+img, video {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none; /* Disable long-press options on iOS */
 }
 
 /* RGB Background Animation */
@@ -26,7 +38,10 @@ body {
 
 /* Header */
 header {
-  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, backdrop-filter 0.3s;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 header.scrolled {
@@ -65,28 +80,25 @@ header.scrolled {
   position: fixed;
   top: 0;
   right: 0;
-  height: 100%;
-  width: 250px;
-  background: #1e3a8a;
+  height: 100vh;
+  width: 100%;
+  max-width: 300px;
+  background: linear-gradient(90deg, #000000, #1e3a8a, #000000);
+  background-size: 400%;
+  animation: rgbMenu 10s ease infinite;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   display: flex;
   flex-direction: column;
   padding: 2rem;
   z-index: 50;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.mobile-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 40;
-}
-
-.mobile-overlay.active {
-  display: block;
+@keyframes rgbMenu {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Nav Links */
@@ -95,8 +107,32 @@ header.scrolled {
   border-bottom: 2px solid #60a5fa;
 }
 
-/* RGB Border Animation for Sections */
-.rgb-border {
+/* Profile Picture Fade-In Animation */
+.home-left {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.myphoto.fade-in {
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+    clip-path: inset(0 0 10% 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Section Border Animation */
+.section-border {
   position: absolute;
   top: -2px;
   left: -2px;
@@ -104,50 +140,74 @@ header.scrolled {
   bottom: -2px;
   border: 2px solid transparent;
   border-radius: 8px;
-  background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff0000);
+  background: linear-gradient(45deg, #000000, #1e3a8a, #000000);
   background-size: 400%;
-  animation: rgbBorder 5s linear infinite;
+  animation: rgbSection 10s ease infinite;
   z-index: -1;
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.section.active .rgb-border {
-  opacity: 1;
+.section.active .section-border {
+  opacity: 0.8;
 }
 
-@keyframes rgbBorder {
+@keyframes rgbSection {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Hire Me Button */
-.hire-me-btn {
+/* Hire Me and Resume Buttons */
+.hire-me-btn, .resume-btn {
   position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hire-me-btn span, .resume-btn span {
   transition: color 0.3s;
 }
 
-.hire-me-btn .btn-rgb {
+.hire-me-btn .btn-rgb, .resume-btn .btn-rgb {
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff0000);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #ffffff, #00ff00, #ffffff);
   background-size: 400%;
-  animation: rgbBorder 3s linear infinite;
+  animation: rgbButton 8s ease infinite;
   z-index: -1;
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.hire-me-btn:hover .btn-rgb {
-  opacity: 1;
+.hire-me-btn:hover .btn-rgb, .resume-btn:hover .btn-rgb {
+  opacity: 0.9;
 }
 
-.hire-me-btn:hover span {
-  color: #fff;
+.hire-me-btn:hover span, .resume-btn:hover span {
+  color: #000;
+}
+
+.hire-me-btn:hover, .resume-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 255, 0, 0.3);
+}
+
+/* Responsive Button Sizes */
+@media (min-width: 768px) {
+  .hire-me-btn, .resume-btn {
+    font-size: 1.125rem;
+    padding: 1rem 3rem;
+  }
 }
 
 /* Projects */
@@ -169,22 +229,44 @@ header.scrolled {
   opacity: 1;
 }
 
-/* Responsive Contact Icons */
+/* Contact Icons */
 .contact-item i {
-  transition: transform 0.3s;
+  transition: transform 0.3s, color 0.3s;
 }
 
 .contact-item:hover i {
   transform: scale(1.2);
+  color: #60a5fa;
 }
 
-/* Client Reviews */
+/* About Me Cards */
+.skill-item {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.5);
+}
+
+.skill-item i {
+  transition: transform 0.3s, color 0.3s;
+}
+
+.skill-item:hover i {
+  transform: scale(1.2);
+  color: #60a5fa;
+}
+
+/* Review Cards */
 .review-card {
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 16px;
 }
 
 .review-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.5);
 }
 
 /* Responsive Adjustments */
