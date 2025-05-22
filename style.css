@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-  kindred: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
   user-select: none;
   -webkit-user-select: none;
@@ -36,7 +36,7 @@ img, video, iframe {
     opacity: 0.2;
   }
   .myphoto {
-    box-shadow: 0 6px 20px rgba(96, 165, 250, 0.7); /* Increased shadow for main photo */
+    box-shadow: 0 6px 20px rgba(96, 165, 250, 0.7);
   }
 }
 
@@ -159,7 +159,7 @@ header.scrolled {
 
 /* Profile Picture */
 .myphoto {
-  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.7); /* Increased shadow for main photo */
+  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.7);
   transition: box-shadow 0.3s ease;
 }
 
@@ -336,18 +336,18 @@ header.scrolled {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.video-embed video {
+.video-embed iframe {
   background: transparent;
-  border-radius: 12px; /* Added border-radius to video */
+  border-radius: 12px;
 }
 
 /* Video size adjustments for mobile and desktop */
 .video-embed {
   position: relative;
-  padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio */
+  padding-bottom: 56.25%;
 }
 
-.video-embed video {
+.video-embed iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -358,14 +358,20 @@ header.scrolled {
 /* Mobile: Increase video size */
 @media (max-width: 767px) {
   .video-embed {
-    padding-bottom: 65%; /* Slightly larger video for mobile */
+    padding-bottom: 65%;
+  }
+  .home-right {
+    padding: 1rem; /* Increased padding for better spacing */
+  }
+  #typing {
+    font-size: 1rem; /* Adjusted font size for mobile */
   }
 }
 
 /* Desktop: Increase video size */
 @media (min-width: 768px) {
   .video-embed {
-    padding-bottom: 50%; /* Larger video for desktop */
+    padding-bottom: 50%;
   }
 }
 
