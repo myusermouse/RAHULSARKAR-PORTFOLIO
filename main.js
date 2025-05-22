@@ -29,9 +29,17 @@ document.addEventListener('DOMContentLoaded', function() {
                         element.src = element.dataset.src || element.src;
                     } else if (element.tagName === 'VIDEO') {
                         element.querySelectorAll('source').forEach(source => {
-                            source.src = source.dataset.src || source.src;
+                            if (source.dataset.src) {
+                                source.src = source.dataset.src;
+                            } else {
+                                console.warn('No data-src found for video source:', source);
+                            }
                         });
-                        element.load();
+                        try {
+                            element.load();
+                        } catch (error) {
+                            console.error('Error loading video:', error);
+                        }
                     }
                     observer.unobserve(element);
                 }
