@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Typing effect
     const typingElement = document.getElementById('typing');
-    const typingTexts = ["Web Developer", "Designer", "Freelancer", "Graphic Designer", "Social Media Management", "Expert"];
+    const typingTexts = ["Graphic Designer","Video Editor","Freelancer", "Web Developer", "Social Media Management", "Expert"];
     let textIndex = 0;
     let charIndex = 0;
     
