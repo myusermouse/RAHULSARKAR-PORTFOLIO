@@ -54,7 +54,7 @@ portfolio-website/ ├── assets/resume.pdf ├── My logo/mylogo.png ├�
 ## Author
 - Name: Rahul Sarkar
 - Location: Dhaka, Bangladesh
-- Email: mdrahulsarkar5525@gmail.com
+- Email: mmdrahulsarkar19@gmail.com
 - Social: [Facebook](https://www.facebook.com/rrRAHULSARKAR), [LinkedIn](https://www.linkedin.com/in/md-rahul-sarkar-199a9632a), [Instagram](https://www.instagram.com/md.rahul.sarkar.00.9), [GitHub](https://github.com/myusermouse), [YouTube](https://www.youtube.com/@yourchannel)
 
 ## License
