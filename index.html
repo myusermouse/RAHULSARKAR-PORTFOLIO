@@ -11,17 +11,16 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- Preload critical assets for faster loading -->
   <link rel="preload" href="./My logo/mylogo.png" as="image">
   <link rel="preload" href="./Profile photo/myphoto.png" as="image">
 </head>
 <body class="font-poppins bg-gradient-to-br from-black to-blue-900 text-white">
   <!-- RGB Background Elements -->
   <div class="rgb-bg"></div>
-  <div class="rgb-bg"></div>
-  <div class="rgb-bg"></div>
+  <div class="rgb-bg rgb-bg-2"></div>
+  <div class="rgb-bg rgb-bg-3"></div>
 
-  <header id="header" class="fixed top-0 w-full bg-opacity-80 z-50 backdrop-blur-md">
+  <header id="header" class="fixed top-0 w-full bg-black bg-opacity-80 z-50" style="backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
     <div class="container mx-auto flex justify-between items-center p-4">
       <div class="h-left">
         <img src="./My logo/mylogo.png" alt="Rahul Sarkar Logo" class="mylogo w-12 h-12" draggable="false">
@@ -40,6 +39,7 @@
         <a href="#section2" class="nav-link text-lg hover:text-blue-400"><span>Projects</span></a>
         <a href="#section3" class="nav-link text-lg hover:text-blue-400"><span>Contact</span></a>
         <a href="#section4" class="nav-link text-lg hover:text-blue-400"><span>About</span></a>
+        <a href="#section6" class="nav-link text-lg hover:text-blue-400"><span>Me</span></a>
       </nav>
     </div>
   </header>
@@ -62,11 +62,12 @@
             <p class="mt-4 text-lg">Hi, I'm Rahul Sarkar – a passionate Graphic Designer and aspiring Video Editor. Currently pursuing my B.A. in English, I create visually stunning designs and engaging video content.</p>
           </div>
           <div class="social-media flex space-x-6 mt-6">
-            <a href="https://www.facebook.com/iam.rahul.sarkar.1" aria-label="Facebook" class="text-3xl hover:text-blue-400"><i class="fab fa-square-facebook"></i></a>
-            <a href="https://www.linkedin.com/in/md-rahul-sarkar-199a9632a" aria-label="LinkedIn" class="text-3xl hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/md.rahul.sarkar.00.9" aria-label="Instagram" class="text-3xl hover:text-blue-400"><i class="fab fa-square-instagram"></i></a>
-            <a href="mailto:mdrahulsarkar5525@gmail.com" aria-label="Email" class="text-3xl hover:text-blue-400"><i class="fas fa-square-envelope"></i></a>
-            <a href="https://github.com/myusermouse" aria-label="GitHub" class="text-3xl hover:text-blue-400"><i class="fab fa-square-github"></i></a>
+            <a href="https://www.facebook.com/rrRAHULSARKAR" aria-label="Facebook" class="social-icon text-3xl hover:text-blue-400"><i class="fab fa-square-facebook"></i></a>
+            <a href="https://www.linkedin.com/in/md-rahul-sarkar-199a9632a" aria-label="LinkedIn" class="social-icon text-3xl hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/md.rahul.sarkar.00.9" aria-label="Instagram" class="social-icon text-3xl hover:text-blue-400"><i class="fab fa-square-instagram"></i></a>
+            <a href="mailto:mdra@gmail.com" aria-label="Email" class="social-icon text-3xl hover:text-blue-400"><i class="fas fa-square-envelope"></i></a>
+            <a href="https://github.com/myusermouse" aria-label="GitHub" class="social-icon text-3xl hover:text-blue-400"><i class="fab fa-square-github"></i></a>
+            <a href="https://www.youtube.com/@yourchannel" aria-label="YouTube" class="social-icon text-3xl hover:text-blue-400"><i class="fab fa-square-youtube"></i></a>
           </div>
           <div class="button-group flex space-x-4 mt-6">
             <a href="mailto:mdrahulsarkar5525@gmail.com" class="hire-me-btn inline-block px-6 py-3 bg-transparent border-2 border-white rounded-lg relative overflow-hidden">
@@ -86,12 +87,12 @@
     <section id="section2" class="section py-16 relative">
       <div class="section-border"></div>
       <h2 class="text-3xl font-bold text-center mb-12">My Projects</h2>
-      <div class="projects-scroll flex overflow-x-auto space-x-6 px-4">
+      <div class="projects-scroll flex overflow-x-auto space-x-8 px-4">
         <div class="projects-container flex">
-          <article class="project-card w-80 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden">
+          <article class="project-card w-80 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden p-6 md:p-8">
             <div class="project-img-container relative">
-              <img src="https://images.unsplash.com/photo-1547658719-706d4d1043b2" alt="Modern Portfolio Website" class="project-img w-full h-48 object-cover" draggable="false">
-              <div class="project-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity">
+              <img src="/Project image/images.jpeg" alt="Modern Portfolio Website" class="project-img w-full h-48 object-cover" draggable="false">
+              <div class="project-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300">
                 <a href="./projects/portfolio.html" class="text-white font-bold">View Details</a>
               </div>
             </div>
@@ -104,13 +105,13 @@
               </a>
             </div>
           </article>
-          <article class="project-card w-80 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden">
+          <article class="project-card w-80 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden p-6 md:p-8">
             <div class="project-img-container relative">
-              <video class="project-img w-full h-48 object-cover" controls>
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-screen-showing-a-video-edit-50773-large.mp4" type="video/mp4">
+              <video class="project-img w-full h-48 object-cover" controls preload="auto">
+                <source src="https://assets.mixkit.co/videos/50773/50773-720.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
-              <div class="project-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity">
+              <div class="project-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300">
                 <a href="./projects/video-reel.html" class="text-white font-bold">View Details</a>
               </div>
             </div>
@@ -123,10 +124,10 @@
               </a>
             </div>
           </article>
-          <article class="project-card w-80 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden">
+          <article class="project-card w-80 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden p-6 md:p-8">
             <div class="project-img-container relative">
               <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="E-Commerce Website Design" class="project-img w-full h-48 object-cover" draggable="false">
-              <div class="project-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity">
+              <div class="project-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300">
                 <a href="./projects/ecommerce.html" class="text-white font-bold">View Details</a>
               </div>
             </div>
@@ -146,23 +147,23 @@
     <!-- Contact Section -->
     <section id="section3" class="section py-16 relative">
       <div class="section-border"></div>
-      <div class="contact-container container mx-auto">
+      <div class="container mx-auto">
         <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
         <div class="contact-grid grid grid-cols-2 md:grid-cols-4 gap-6">
           <a href="mailto:mdrahulsarkar5525@gmail.com" class="contact-item flex flex-col items-center text-center">
-            <i class="fas fa-square-envelope text-4xl md:text-6xl mb-2"></i>
+            <i class="fas fa-square-envelope text-4xl md:text-6xl mb-2 transition-transform duration-300 hover:scale-110 hover:text-blue-400"></i>
             <span>Email</span>
           </a>
           <a href="tel:+8801234567890" class="contact-item flex flex-col items-center text-center">
-            <i class="fas fa-square-phone text-4xl md:text-6xl mb-2"></i>
+            <i class="fas fa-square-phone text-4xl md:text-6xl mb-2 transition-transform duration-300 hover:scale-110 hover:text-blue-400"></i>
             <span>Call</span>
           </a>
           <a href="https://wa.me/+8801234567890" class="contact-item flex flex-col items-center text-center">
-            <i class="fab fa-square-whatsapp text-4xl md:text-6xl mb-2"></i>
+            <i class="fab fa-square-whatsapp text-4xl md:text-6xl mb-2 transition-transform duration-300 hover:scale-110 hover:text-blue-400"></i>
             <span>WhatsApp</span>
           </a>
           <a href="https://t.me/rahulsarkar" class="contact-item flex flex-col items-center text-center">
-            <i class="fab fa-telegram text-4xl md:text-6xl mb-2"></i>
+            <i class="fab fa-telegram text-4xl md:text-6xl mb-2 transition-transform duration-300 hover:scale-110 hover:text-blue-400"></i>
             <span>Telegram</span>
           </a>
         </div>
@@ -175,20 +176,30 @@
       <div class="about-container container mx-auto">
         <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
         <div class="skills-container grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="skill-item bg-gray-800 p-6 rounded-lg text-center">
-            <i class="fas fa-palette text-5xl mb-4"></i>
+          <div class="skill-item bg-gray-800 p-6 rounded-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-card">
+            <i class="fas fa-palette text-5xl mb-4 transition-transform duration-300 hover:scale-110 hover:text-blue-400"></i>
             <h3 class="text-xl font-semibold">Graphic Design</h3>
             <p class="text-gray-300">Creating visually stunning designs for digital and print media.</p>
           </div>
-          <div class="skill-item bg-gray-800 p-6 rounded-lg text-center">
-            <i class="fas fa-video text-5xl mb-4"></i>
+          <div class="skill-item bg-gray-800 p-6 rounded-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-card">
+            <i class="fas fa-video text-5xl mb-4 transition-transform duration-300 hover:scale-110 hover:text-blue-400"></i>
             <h3 class="text-xl font-semibold">Video Editing</h3>
             <p class="text-gray-300">Professional video editing and post-production services.</p>
           </div>
-          <div class="skill-item bg-gray-800 p-6 rounded-lg text-center">
-            <i class="fas fa-code text-5xl mb-4"></i>
+          <div class="skill-item bg-gray-800 p-6 rounded-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-card">
+            <i class="fas fa-code text-5xl mb-4 transition-transform duration-300 hover:scale-110 hover:text-blue-400"></i>
             <h3 class="text-xl font-semibold">Web Design</h3>
             <p class="text-gray-300">Building responsive and user-friendly websites.</p>
+          </div>
+          <div class="skill-item bg-gray-800 p-6 rounded-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-card">
+            <i class="fas fa-users-cog text-5xl mb-4 transition-transform duration-300 hover:scale-110 hover:text-blue-400"></i>
+            <h3 class="text-xl font-semibold">Social Media Management</h3>
+            <p class="text-gray-300">Managing and optimizing social media accounts for engagement and growth.</p>
+          </div>
+          <div class="skill-item bg-gray-800 p-6 rounded-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-card">
+            <i class="fas fa-image text-5xl mb-4 transition-transform duration-300 hover:scale-110 hover:text-blue-400"></i>
+            <h3 class="text-xl font-semibold">Social Media Design</h3>
+            <p class="text-gray-300">Designing profile covers, posts, and visuals for social media platforms.</p>
           </div>
         </div>
       </div>
@@ -200,20 +211,52 @@
       <div class="container mx-auto">
         <h2 class="text-3xl font-bold text-center mb-12">Client Reviews</h2>
         <div class="reviews-container grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="review-card bg-gray-800 p-6 rounded-xl text-center">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="Client A" class="w-16 h-16 rounded-full mx-auto mb-4" draggable="false">
+          <div class="review-card bg-gray-800 p-6 rounded-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-card">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="John Smith" class="w-16 h-16 rounded-full mx-auto mb-4" draggable="false">
             <p class="text-gray-300">"Rahul delivered a fantastic portfolio website with great attention to detail. Highly recommended!"</p>
-            <h4 class="text-lg font-semibold mt-4">Client A</h4>
+            <h4 class="text-lg font-semibold mt-4">John Smith, USA</h4>
           </div>
-          <div class="review-card bg-gray-800 p-6 rounded-xl text-center">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" alt="Client B" class="w-16 h-16 rounded-full mx-auto mb-4" draggable="false">
+          <div class="review-card bg-gray-800 p-6 rounded-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-card">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" alt="Emma Johnson" class="w-16 h-16 rounded-full mx-auto mb-4" draggable="false">
             <p class="text-gray-300">"The video editing was smooth and professional. Pretty good work overall!"</p>
-            <h4 class="text-lg font-semibold mt-4">Client B</h4>
+            <h4 class="text-lg font-semibold mt-4">Emma Johnson, USA</h4>
           </div>
-          <div class="review-card bg-gray-800 p-6 rounded-xl text-center">
-            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7" alt="Client C" class="w-16 h-16 rounded-full mx-auto mb-4" draggable="false">
+          <div class="review-card bg-gray-800 p-6 rounded-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-card">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7" alt="Arif Rahman" class="w-16 h-16 rounded-full mx-auto mb-4" draggable="false">
             <p class="text-gray-300">"Rahul's designs are creative and modern. Not bad at all!"</p>
-            <h4 class="text-lg font-semibold mt-4">Client C</h4>
+            <h4 class="text-lg font-semibold mt-4">Arif Rahman, Bangladesh</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Me Section -->
+    <section id="section6" class="section py-16 relative">
+      <div class="section-border"></div>
+      <div class="about-container container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-6">Me</h2>
+        <div class="profile-pic-container flex justify-center mb-8">
+          <img src="./Profile photo/myphoto.png" alt="Rahul Sarkar" class="profile-pic w-24 h-24 object-cover rounded-full fade-in" draggable="false">
+        </div>
+        <div class="me-container grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="info-item bg-gray-800 p-6 rounded-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-card">
+            <h3 class="text-xl font-semibold mb-4">About Rahul Sarkar</h3>
+            <p class="text-gray-300">I'm a creative professional from Bangladesh, specializing in graphic design, video editing, and web design. Currently pursuing a B.A. in English, I blend creativity with technical skills to deliver stunning visuals and engaging content.</p>
+            <ul class="text-gray-300 mt-4 space-y-2">
+              <li><strong>Location:</strong> Dhaka, Bangladesh</li>
+              <li><strong>Education:</strong> B.A. in English (Ongoing)</li>
+              <li><strong>Experience:</strong> 3+ years in graphic design and video editing</li>
+              <li><strong>Languages:</strong> English, Bengali</li>
+            </ul>
+          </div>
+          <div class="video-item p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-4">My Work</h3>
+            <div class="video-embed relative" style="padding-bottom: 56.25%;">
+              <video class="absolute top-0 left-0 w-full h-full object-cover" controls preload="auto">
+                <source src="./Project image/video/social-media-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
         </div>
       </div>

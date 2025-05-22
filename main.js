@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     // DOM Elements
-    const body = document.getElementById('body');
     const header = document.getElementById('header');
     const menuToggle = document.getElementById('menuToggle');
     const mainNav = document.getElementById('mainNav');
@@ -10,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const yearSpan = document.getElementById('year');
     const hireBtn = document.querySelector('.hire-me-btn');
     const resumeBtn = document.querySelector('.resume-btn');
-    const projectCards = document.querySelectorAll('.project-card');
     
     // Prevent text selection and dragging
     document.addEventListener('selectstart', function(e) {
@@ -20,23 +18,36 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
     });
     
-    // Lazy load images
-    const images = document.querySelectorAll('img');
+    // Lazy load images and videos
+    const mediaElements = document.querySelectorAll('img, video');
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src || img.src;
-                    observer.unobserve(img);
+                    const element = entry.target;
+                    if (element.tagName === 'IMG') {
+                        element.src = element.dataset.src || element.src;
+                    } else if (element.tagName === 'VIDEO') {
+                        element.querySelectorAll('source').forEach(source => {
+                            source.src = source.dataset.src || source.src;
+                        });
+                        element.load();
+                    }
+                    observer.unobserve(element);
                 }
             });
-        });
-        images.forEach(img => {
-            if (!img.src) {
-                img.dataset.src = img.getAttribute('src');
-                img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
-                observer.observe(img);
+        }, { rootMargin: '0px 0px 100px 0px' });
+        mediaElements.forEach(element => {
+            if (element.tagName === 'IMG' && (!element.src || element.src.includes('data:image'))) {
+                element.dataset.src = element.getAttribute('src') || element.dataset.src;
+                element.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+                observer.observe(element);
+            } else if (element.tagName === 'VIDEO') {
+                element.querySelectorAll('source').forEach(source => {
+                    source.dataset.src = source.getAttribute('src') || source.dataset.src;
+                    source.removeAttribute('src');
+                });
+                observer.observe(element);
             }
         });
     }
@@ -87,14 +98,14 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileOverlay.classList.toggle('active');
             const isExpanded = this.classList.contains('active');
             this.setAttribute('aria-expanded', isExpanded);
-            body.style.overflow = isExpanded ? 'hidden' : '';
+            document.body.style.overflow = isExpanded ? 'hidden' : '';
         });
         
         mobileOverlay.addEventListener('click', function() {
             menuToggle.classList.remove('active');
             mainNav.classList.remove('active');
             mobileOverlay.classList.remove('active');
-            body.style.overflow = '';
+            document.body.style.overflow = '';
         });
         
         navLinks.forEach(link => {
@@ -103,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     menuToggle.classList.remove('active');
                     mainNav.classList.remove('active');
                     mobileOverlay.classList.remove('active');
-                    body.style.overflow = '';
+                    document.body.style.overflow = '';
                 }
             });
         });
@@ -120,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Header shadow and active section
     const scrollHandler = debounce(function() {
+        if (!header) return;
         const scrollY = window.scrollY;
         const headerHeight = header.offsetHeight;
         
@@ -135,23 +147,25 @@ document.addEventListener('DOMContentLoaded', function() {
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            if (scrollY >= sectionTop - sectionHeight / 3) {
+            if (scrollY >= sectionTop - headerHeight - 50) {
                 current = section.getAttribute('id');
             }
             section.classList.remove('active');
         });
         
-        const activeSection = document.getElementById(current);
-        if (activeSection) {
-            activeSection.classList.add('active');
-        }
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
+        if (current) {
+            const activeSection = document.getElementById(current);
+            if (activeSection) {
+                activeSection.classList.add('active');
             }
-        });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
     }, 100);
     
     window.addEventListener('scroll', scrollHandler);
@@ -162,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            if (targetElement) {
+            if (targetElement && header) {
                 window.scrollTo({
                     top: targetElement.offsetTop - header.offsetHeight,
                     behavior: 'smooth'
@@ -175,22 +189,14 @@ document.addEventListener('DOMContentLoaded', function() {
     [hireBtn, resumeBtn].forEach(btn => {
         if (btn) {
             btn.addEventListener('mouseenter', function() {
-                this.querySelector('span').style.color = '#000';
+                const span = this.querySelector('span');
+                if (span) span.style.color = '#000';
             });
             btn.addEventListener('mouseleave', function() {
-                this.querySelector('span').style.color = '';
+                const span = this.querySelector('span');
+                if (span) span.style.color = '';
             });
         }
-    });
-    
-    // Project card hover effect
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.querySelector('.project-overlay').style.opacity = '0.8';
-        });
-        card.addEventListener('mouseleave', function() {
-            this.querySelector('.project-overlay').style.opacity = '0';
-        });
     });
     
     // Initialize scroll

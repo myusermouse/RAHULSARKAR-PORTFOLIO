@@ -1,19 +1,48 @@
 /* General Styles */
 body {
-  font-family: 'Poppins', sans-serif;
+  kindred: 'Poppins', sans-serif;
   overflow-x: hidden;
-  /* Disable text selection and dragging */
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
 }
 
-/* Disable dragging for images and videos */
-img, video {
+/* Disable dragging for images, videos, and iframes */
+img, video, iframe {
   -webkit-user-drag: none;
   user-drag: none;
-  -webkit-touch-callout: none; /* Disable long-press options on iOS */
+  -webkit-touch-callout: none;
+}
+
+/* Dark Mode Adjustments */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #000;
+  }
+  .text-white {
+    color: #e5e7eb;
+  }
+  .text-gray-300 {
+    color: #d1d5db;
+  }
+  .social-icon, .nav-link, .contact-item i, .see-more {
+    color: #e5e7eb;
+  }
+  .social-icon:hover, .nav-link:hover, .contact-item i:hover, .see-more:hover {
+    color: #60a5fa;
+  }
+  .rgb-bg {
+    opacity: 0.2;
+  }
+  .myphoto {
+    box-shadow: 0 6px 20px rgba(96, 165, 250, 0.7); /* Increased shadow for main photo */
+  }
+}
+
+/* Card Shadow */
+.shadow-card {
+  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.5);
 }
 
 /* RGB Background Animation */
@@ -30,6 +59,14 @@ img, video {
   animation: rgbBackground 15s ease infinite;
 }
 
+.rgb-bg-2 {
+  animation-delay: -5s;
+}
+
+.rgb-bg-3 {
+  animation-delay: -10s;
+}
+
 @keyframes rgbBackground {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -38,10 +75,7 @@ img, video {
 
 /* Header */
 header {
-  transition: box-shadow 0.3s, backdrop-filter 0.3s;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s;
 }
 
 header.scrolled {
@@ -52,6 +86,11 @@ header.scrolled {
   position: relative;
   z-index: 60;
   margin-right: 0.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.menu-toggle:hover {
+  box-shadow: -2px 2px 5px rgba(96, 165, 250, 0.3);
 }
 
 .bar {
@@ -90,9 +129,15 @@ header.scrolled {
   -webkit-backdrop-filter: blur(5px);
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 2rem;
   z-index: 50;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.h-right.active a {
+  margin: 1rem 0;
+  font-size: 1.5rem;
 }
 
 @keyframes rgbMenu {
@@ -107,14 +152,25 @@ header.scrolled {
   border-bottom: 2px solid #60a5fa;
 }
 
+.nav-link:hover {
+  color: #60a5fa;
+  transition: color 0.3s;
+}
+
+/* Profile Picture */
+.myphoto {
+  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.7); /* Increased shadow for main photo */
+  transition: box-shadow 0.3s ease;
+}
+
 /* Profile Picture Fade-In Animation */
-.home-left {
+.home-left, .profile-pic-container {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
 }
 
-.myphoto.fade-in {
+.myphoto.fade-in, .profile-pic.fade-in {
   animation: fadeInUp 1.5s ease-out forwards;
 }
 
@@ -132,6 +188,10 @@ header.scrolled {
 }
 
 /* Section Border Animation */
+.section {
+  position: relative;
+}
+
 .section-border {
   position: absolute;
   top: -2px;
@@ -145,7 +205,7 @@ header.scrolled {
   animation: rgbSection 10s ease infinite;
   z-index: -1;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
 }
 
 .section.active .section-border {
@@ -158,6 +218,16 @@ header.scrolled {
   100% { background-position: 0% 50%; }
 }
 
+/* Social Media Icons */
+.social-icon {
+  transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(96, 165, 250, 0.5);
+}
+
 /* Hire Me and Resume Buttons */
 .hire-me-btn, .resume-btn {
   position: relative;
@@ -168,11 +238,11 @@ header.scrolled {
   letter-spacing: 0.05em;
   padding: 0.75rem 2rem;
   border-radius: 8px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hire-me-btn span, .resume-btn span {
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .hire-me-btn .btn-rgb, .resume-btn .btn-rgb {
@@ -186,7 +256,7 @@ header.scrolled {
   animation: rgbButton 8s ease infinite;
   z-index: -1;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
 }
 
 .hire-me-btn:hover .btn-rgb, .resume-btn:hover .btn-rgb {
@@ -199,7 +269,7 @@ header.scrolled {
 
 .hire-me-btn:hover, .resume-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 255, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.5);
 }
 
 /* Responsive Button Sizes */
@@ -225,53 +295,92 @@ header.scrolled {
   border-radius: 4px;
 }
 
+.project-card {
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.5);
+}
+
 .project-card:hover .project-overlay {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 /* Contact Icons */
 .contact-item i {
-  transition: transform 0.3s, color 0.3s;
-}
-
-.contact-item:hover i {
-  transform: scale(1.2);
-  color: #60a5fa;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 /* About Me Cards */
 .skill-item {
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.skill-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.5);
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-item i {
-  transition: transform 0.3s, color 0.3s;
-}
-
-.skill-item:hover i {
-  transform: scale(1.2);
-  color: #60a5fa;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 /* Review Cards */
 .review-card {
-  transition: transform 0.3s, box-shadow 0.3s;
-  border-radius: 16px;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.review-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.5);
+/* Me Section */
+.me-container .info-item {
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-embed video {
+  background: transparent;
+  border-radius: 12px; /* Added border-radius to video */
+}
+
+/* Video size adjustments for mobile and desktop */
+.video-embed {
+  position: relative;
+  padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio */
+}
+
+.video-embed video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Mobile: Increase video size */
+@media (max-width: 767px) {
+  .video-embed {
+    padding-bottom: 65%; /* Slightly larger video for mobile */
+  }
+}
+
+/* Desktop: Increase video size */
+@media (min-width: 768px) {
+  .video-embed {
+    padding-bottom: 50%; /* Larger video for desktop */
+  }
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .h-right {
     transform: translateX(100%);
+  }
+
+  .me-container {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-pic {
+    width: 80px;
+    height: 80px;
   }
 }
